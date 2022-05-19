@@ -16,3 +16,16 @@ var connection = mysql.createConnection({
   
   connection.end();
   */
+  function getAcoAll(){
+    let sqlGet = connect.connection.query('SELECT * FROM DBTCC.ACO',  
+     async function(err, result, fields) {
+    if (err) throw err;
+    await return Object.values(JSON.parse(JSON.stringify(result)));
+
+    }
+)
+
+
+
+}
+console.log(getAcoAll())

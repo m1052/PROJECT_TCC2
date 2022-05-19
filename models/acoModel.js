@@ -1,3 +1,4 @@
+const { get } = require('express/lib/response');
 const connect = require('../database/db');
 class acoModel{
     _ACODIGO
@@ -12,12 +13,16 @@ class acoModel{
 }
 
 function getAcoAll(){
-   let row = [];
-    const sqlGet = connect.connection.query('SELECT * FROM DBTCC.ACO',  function(err, rows, fields) {
+    let sqlGet = await connect.connection.query('SELECT * FROM DBTCC.ACO',  
+     async function(err, result, fields) {
     if (err) throw err;
-    //console.log('The solution is: ', rows[0]);
-    return this.rows[0]
-})
-    console.log(rows[0])
+    console.log(result)
+    return Object.values(JSON.parse(JSON.stringify(result)));
+
+    }
+)
+
+
+
 }
-getAcoAll();
+console.log(getAcoAll())
