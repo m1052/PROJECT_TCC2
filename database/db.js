@@ -1,15 +1,18 @@
-const { error } = require('console');
-const Sequelize = require('sequelize')
-const sequelize = new Sequelize('DB_TCC','TCC2','123', {
-    host: "Localhost",
-    dialect:'mysql'
-});
-sequelize.authenticate().then(function(){
-    console.log('conectado')
-}).catch(function(error){
-    console.log('error'+error)
-})
-module.exports = {
-    sequelize: sequelize,
-    Sequelize: Sequelize
-};
+var mysql = require('mysql2')
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'TCC2',
+    password : '123'
+  });
+  
+  module.exports = {
+      connection: connection,
+  }
+  /*connection.connect();
+  connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+    if (err) throw err;
+    console.log('The solution is: ', rows[0].solution);
+  });
+  
+  connection.end();
+  */
