@@ -8,7 +8,7 @@ const router = express();
 });
 */
 router.get('/', function(req,res){
-    res.render('home');
+    res.render('login');
     
 })
 router.get('/situacao/:cod', function(req,res){
