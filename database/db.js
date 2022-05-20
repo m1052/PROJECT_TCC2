@@ -1,6 +1,6 @@
- exports.main = async function (consulta) {
+ exports.main = async function (consulta,colm,parm) {
     // get the client
-    let query = `SELECT * FROM ${consulta}`
+    let query = `SELECT * FROM ${consulta} WHERE ${colm} = ${parm}`
     const mysql = require('mysql2/promise')
     // create the connection
     const connection = await mysql.createConnection({
@@ -13,4 +13,3 @@
       return rows
   } 
   
- exports.teste = function teste(){console.log('meu teste')};

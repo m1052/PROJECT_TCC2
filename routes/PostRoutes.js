@@ -3,12 +3,6 @@ const router = express();
 const dbAco = require('../database/dbAco')
 const db = require('../database/db')
 
-
-
-/*router.get('/situacao', function(req,res){
-    res.end();
-});
-*/
 router.get('/', function(req,res){
     res.render('login');
     
@@ -19,8 +13,7 @@ router.get('/situacao/:cod', function(req,res){
 });
 
 router.get('/aco', async function(req,res){
-        const aux = await db.main('ACO')
-        console.log(aux)
+        res.render('acoView')
 });
 
 

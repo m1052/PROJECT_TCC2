@@ -1,3 +1,4 @@
+const dbAco = require('../database/dbAco')
 class acoModel{
     _ACODIGO
     _ANOME
@@ -8,4 +9,7 @@ class acoModel{
         this._ADESCRICAO = desc;
     }
 
-}
+    
+    }
+
+
