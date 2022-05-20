@@ -1,19 +1,16 @@
-var mysql = require('mysql2')
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'TCC',
-    password : '123'
-  });
+ exports.main = async function (consulta) {
+    // get the client
+    let query = `SELECT * FROM ${consulta}`
+    const mysql = require('mysql2/promise')
+    // create the connection
+    const connection = await mysql.createConnection({
+      host:'localhost', user: 'TCC',
+      password: '123',
+      database: 'DBTCC'});
+
+    // query database
+    let [rows] = await connection.execute(query)
+      return rows
+  } 
   
-  /*module.exports = {
-      connection: connection,
-  }
-  */
-
-
-
-async function getAcoAll(){
-  const aux = await  connection.query('SELECT * FROM DBTCC.ACO')
-  console.log('valor de eaux: '+aux)
-}
-getAcoAll()
+ exports.teste = function teste(){console.log('meu teste')};
