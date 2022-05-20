@@ -13,7 +13,12 @@ router.get('/situacao/:cod', function(req,res){
 });
 
 router.get('/aco', async function(req,res){
-        res.render('acoView')
+        const acoGetAll = await dbAco.getAcoAll()
+        console.log(acoGetAll)
+        
+      res.render('acoView',{acoGetAll: acoGetAll})
+
+        
 });
 
 

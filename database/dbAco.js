@@ -5,7 +5,7 @@ exports.getAcoCod = async function (PARM){
 }
 exports.getAcoAll = async function (){
     const getAco = await db.main('ACO','1','1')
-    //console.log(getAco)
+   // console.log(getAco)
 
 }
 //getAcoAll()
