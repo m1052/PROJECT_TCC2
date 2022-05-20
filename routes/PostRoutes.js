@@ -1,6 +1,6 @@
 const express = require ('express');
-const { append } = require('express/lib/response');
 const router = express();
+const dbAco = require('../database/dbAco')
 
 
 /*router.get('/situacao', function(req,res){
@@ -16,8 +16,9 @@ router.get('/situacao/:cod', function(req,res){
     
 });
 
-router.get('/aco/:cod', function(req,res){
-    res.send('aco');
+router.get('/aco', async function(req,res){
+    const result = await dbAco.getaco()
+    res.json(result)
 });
 
 
