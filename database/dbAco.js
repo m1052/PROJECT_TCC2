@@ -1,12 +1,21 @@
+const res = require('express/lib/response');
 const db = require('./db')
-exports.getAcoCod = async function (PARM){
-    const getAco = await db.main('ACO','ACODIGO',PARM)
-    //console.log(getAco)
-}
-exports.getAcoAll = async function (){
-    const getAco = await db.main('ACO','1','1')
-   // console.log(getAco)
+async function getAcoCod(parm){
+    let acoGetCod= await db.main('ACO','ACODIGO',parm)
 
 }
-//getAcoAll()
- 
+async function getAcoAll(){
+    let rows = await db.main('ACO', '1','1').then(rows =>{  
+        //console.log(typeof(rows))
+        return rows
+        // JSON.stringify(rows);
+    });
+    return rows
+}
+getAcoAll();
+module.exports = {
+    getAcoAll,
+    getAcoCod
+}
+//getAcoAll();
+//getAcoCod(`'CODIGOTST'`);

@@ -1,15 +1,16 @@
- exports.main = async function (consulta,colm,parm) {
-    // get the client
+async function main(consulta,colm,parm) {
+   const mysql  = require('mysql2/promise');
+  const connection = mysql.createPool({
+    host: 'localhost',
+    user: 'TCC',
+    database: 'dbtcc_tst',
+    password: '12345678'
+    })
     let query = `SELECT * FROM ${consulta} WHERE ${colm} = ${parm}`
-    const mysql = require('mysql2/promise')
-    // create the connection
-    const connection = await mysql.createConnection({
-      host:'localhost', user: 'TCC',
-      password: '123',
-      database: 'DBTCC'});
+    let [rows] = await connection.query(query);
+    return rows;
 
-    // query database
-    let [rows] = await connection.execute(query)
-      return rows
-  } 
-  
+  }
+module.exports = {
+  main,
+};
