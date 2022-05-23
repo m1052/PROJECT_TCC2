@@ -4,7 +4,7 @@ const controlAco = require('../controllers/acoController')
 const controlSit = require('../controllers/situcaoController')
 
 router.get('/', function (req, res) {
-    res.render('login');
+    res.render('login',{layout: 'loginMain'});
 
 })
 router.get('/situacao',controlSit.get)
