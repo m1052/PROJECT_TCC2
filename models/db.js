@@ -3,7 +3,7 @@ async function main(consulta, colm, parm) {
   const connection = mysql.createPool({
     host: 'localhost',
     user: 'TCC',
-    database: 'dbtcc_tst',
+    database: 'dbtcc',
     password: '12345678'
   })
   let query = `SELECT * FROM ${consulta} WHERE ${colm} = ${parm}`
