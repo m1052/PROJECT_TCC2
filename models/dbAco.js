@@ -1,11 +1,10 @@
-const res = require('express/lib/response');
 const db = require('./db')
-async function getAcoCod(parm){
-    let acoGetCod= await db.main('ACO','ACODIGO',parm)
+async function getAcoCod(parm) {
+    let acoGetCod = await db.main('ACO', 'ACODIGO', parm)
 
 }
-async function getAcoAll(){
-    let rows = await db.main('ACO', '1','1').then(rows =>{  
+async function getAcoAll() {
+    let rows = await db.main('ACO', '1', '1').then(rows => {
         //console.log(typeof(rows))
         return rows
         // JSON.stringify(rows);

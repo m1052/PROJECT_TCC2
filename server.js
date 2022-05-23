@@ -4,13 +4,13 @@ const app = express();
 const port = 3000;
 //handlebars
 
-app.engine('handlebars', handlebars.engine({defaultLayout:'main'}))
+app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 //routers
-app.use('/',require('./routes/PostRoutes'));
+app.use('/', require('./routes/PostRoutes'));
 //server
-app.listen(port, () =>{
+app.listen(port, () => {
 
-console.log("Rodandado na porta: "+port)
+    console.log("Rodandado na porta: " + port)
 
 });
