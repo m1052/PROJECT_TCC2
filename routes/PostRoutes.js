@@ -12,9 +12,6 @@ router.get('/situacao', controlSit.get)
 
 router.get('/aco/', controlAco.get)
 
-router.get('/eletrodo/:cod', function (req, res) {
-    res.send('eletrodo');
-});
 router.get('/relacao/:codSit',controlRel.getRelSit)
 module.exports = router;
 

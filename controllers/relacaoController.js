@@ -1,11 +1,14 @@
 const dbAco = require('../models/dbAco')
 const dbRel = require('../models/dbrelacao')
-async function getRelSit(req,res){
-    let getRelatSit = await dbRel.getRelSit(`'${req.params.codSit}'`).then( async function(rows){
-       let conAco = await dbAco.getAcoCod()
-        console.log(rows.map)
+async function getRelSit(req,res){(0)
+    //let row = await dbRel.getRelSit(`'${req.params.codSit}'`)
+    let query = await dbRel.getRelSit(`'${req.params.codSit}'`).then(async function (response){
+        let rows = await dbAco.getAcoCod(response)
+        console.log(rows)
     })
-    return getRelatSit
+   /* let rows = await dbAco.getAcoCod(query)
+    console.log(query)    
+   return rows */
 }
 module.exports = {
     getRelSit,
