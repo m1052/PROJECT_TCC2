@@ -1,9 +1,10 @@
-const db = require('../models/dbrelacao')
+const dbAco = require('../models/dbAco')
+const dbRel = require('../models/dbrelacao')
 async function getRelSit(req,res){
-    let getRelatSit = await db.getRelSit(`'${req.params.codSit}'`).then(rows =>{
-        return rows
+    let getRelatSit = await dbRel.getRelSit(`'${req.params.codSit}'`).then( async function(rows){
+       let conAco = await dbAco.getAcoCod()
+        console.log(rows.map)
     })
-    console.log(getRelatSit)
     return getRelatSit
 }
 module.exports = {
