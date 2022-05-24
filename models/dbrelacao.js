@@ -1,9 +1,11 @@
 const db = require('../models/db')
-async function getRelat(consRelat){
-    let getRelat = await db.main('RELACAO','COD.SITUACAO',consRelat).then(getRelat =>{
+async function getRelSit(consRelat){
+    let getRelat = await db.main('*','RELACAO','CODSITUACAO',consRelat).then(getRelat =>{
         return getRelat;
     })
-    console.log(getRelat)
     return getRelat;
 }
-getRelat(`'SI001'`)
+//getRelSit(`'SI002'`)
+module.exports = {
+    getRelSit,
+}
