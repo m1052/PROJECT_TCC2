@@ -1,13 +1,10 @@
 const db = require('../models/db')
-async function getRelSit(consRelat){
-    let getRelat = await db.main('CODACO','RELACAO','CODSITUACAO',consRelat).then(getRelat =>{
-        
-        return getRelat;
-    })
-    
-    return getRelat.forEach(each =>{console.log(each.CODACO)});
+async function getRelSitAco(codsituacao){
+    let rows = await db.inner('*','aco','relacao','acodigo','codaco','b','codsituacao',codsituacao)
+    //console.log(rows)
+    return rows
 }
-//getRelSit(`'SI002'`)
+//getRelSitAco('SI003')
 module.exports = {
-    getRelSit,
+    getRelSitAco,
 }
