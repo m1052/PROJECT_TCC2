@@ -12,6 +12,7 @@ router.get('/situacao', controlSit.get)
 
 router.get('/aco/', controlAco.get)
 
-router.get('/relacao/:codSit',controlRel.getRelSitAco)
+router.get('/aco/:codSit',controlRel.getRelSitAco)
+router.get('/eletrodo/:codEl',controlRel.getRelAcoEl)
 module.exports = router;
 

@@ -4,7 +4,12 @@ async function getRelSitAco(codsituacao){
     //console.log(rows)
     return rows
 }
-//getRelSitAco('SI003')
+async function  getRelAcoEl(codaco){
+    let rows = await db.inner('*','eletrodo','relacao','ecodigo','codeletrodo','b','codaco',codaco)
+    return rows
+}
+//getRelAcoEl('SAE-AISI-1045')
 module.exports = {
     getRelSitAco,
+    getRelAcoEl
 }
