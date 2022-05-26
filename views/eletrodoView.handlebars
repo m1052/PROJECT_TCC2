@@ -1,3 +1,16 @@
+{{#each getEletrodo}}
+<div class="d-inline-flex p-2">
+        <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                        <h4 class="card-title">{{ECODIGO}}</h4>
+                        <b><p>{{ENOME}}</p></b>
+                        <p class="card-text">{{EDESCRICAO}}</p>
+                        <a href="#" class="btn btn-primary">SELECIONAR</a>
+                </div>
+        </div>
+</div>
+
+{{/each}}
 {{#each getEletrodoAco}}
 <div class="d-inline-flex p-2">
         <div class="card" style="width: 18rem;">

@@ -1,6 +1,9 @@
 const db = require('../models/dbeletrodo')
-async function getEletrodo(req,res){
+async function get(req,res){
     let rows = await db.getEletrodo()
-    res.render('eletroo')
+    res.render('eletrodoView', {getEletrodo: rows})
     
+}
+module.exports = {
+    get,
 }
