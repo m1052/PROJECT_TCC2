@@ -6,6 +6,7 @@ async function get(req, res){
         res.render('situacaoView', { sitGet: sitGet })
     }
     )}
+
 module.exports = {
     get,
 }

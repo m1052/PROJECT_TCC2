@@ -12,11 +12,14 @@ router.get('/', function (req, res) {
 router.get('/index',(req,res)=>{
     res.render('indexView')
 })
-//Rotas dinamicas GET
+//rotas dinamicas
 router.get('/situacao', controlSit.get)
+router.get('/situacao/:codeletrodo', controlRel.getRelSitEl)
 router.get('/eletrodo',controEl.get)
+router.get('/eletrodo/aco/:codAco',controlRel.getRelAcoEl2)
+router.get('/eletrodo/:codAco',controlRel.getRelAcoEl)
 router.get('/aco', controlAco.get)
 router.get('/aco/:codSit',controlRel.getRelSitAco)
-router.get('/eletrodo/:codEl',controlRel.getRelAcoEl)
+
 module.exports = router;
 
