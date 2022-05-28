@@ -6,11 +6,14 @@ const controlSit = require('../controllers/situcaoController')
 const controEl = require('../controllers/eletrodoController')
 //Rotas estaticas
 router.get('/', function (req, res) {
-    res.render('login', { layout: 'loginMain' });
+    res.redirect('/login')
 
 })
 router.get('/index',(req,res)=>{
     res.render('indexView')
+})
+router.get('/login',(req,res)=>{
+    res.render('login/login',{layout:'loginMain'})
 })
 //rotas dinamicas
 router.get('/situacao', controlSit.get)
