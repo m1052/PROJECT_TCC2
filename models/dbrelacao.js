@@ -10,7 +10,7 @@ async function  getRelAcoEl(codaco){
     return rows;
 }
 async function getRelSitEletrodo(codeletrodo){
-    let rows = await db.inner('*','situacao','relacao','SICODIGO','CODSITUACAO','b','codeletrodo',codeletrodo)
+    let rows = await db.inner('*','situacao','relacao','idSit','CODSITUACAO','b','codeletrodo',codeletrodo)
    // console.log(rows)
     return rows;
 }

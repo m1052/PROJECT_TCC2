@@ -16,11 +16,15 @@ const mysql = require('mysql2/promise');
 //innner join dinamico
 async function inner(colm,tablea,tableb,primarya,primaryb,tableparams,params,val){
   let query = `select ${colm} from ${tablea} as a inner join ${tableb} as b  on  a.${primarya}  = b.${primaryb} where ${tableparams}.${params}='${val}'`
-  let [rows] = await connection.query(`select ${colm} from ${tablea} as a inner join ${tableb} as b  on  a.${primarya}  = b.${primaryb} where ${tableparams}.${params} = '${val}'`)
+  let [rows] = await connection.query(query)
   return rows
   //console.log(rows)
 }
-//inner('*','aco','relacao','acodigo','codaco','b','codsituacao','si002')
+//insert dinamico
+async function insert(){
+  let query = ``
+}
+
 module.exports = {
   main,
   inner,
