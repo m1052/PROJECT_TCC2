@@ -28,4 +28,5 @@ async function insert(){
 module.exports = {
   main,
   inner,
+  connection,
 };

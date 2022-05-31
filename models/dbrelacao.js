@@ -7,17 +7,25 @@ async function getRelSitAco(codsituacao){
 //Retorna eletrodo para um  aço
 async function  getRelAcoEl(codaco){
     let rows = await db.inner('*','eletrodo','relacao','ecodigo','codeletrodo','b','codaco',codaco)
+    console.log(rows)
     return rows;
 }
+//Retorna situacao para um eletrodo
 async function getRelSitEletrodo(codeletrodo){
     let rows = await db.inner('*','situacao','relacao','idSit','CODSITUACAO','b','codeletrodo',codeletrodo)
-   // console.log(rows)
+  
     return rows;
 }
-//getRelSitEletrodo('E6010')
-//g('SAE-AISI-1045')
+//retorna tudo de relacao para uma situacao
+async function innerRelSit(Sitcod,Acocod,Eletrodocod){
+    let [rows] = await db.connection.query(`select * from relacao as r inner join situacao as s on r.codsituacao = s.idSit where r.codsituacao = '${Sitcod}' and r.codaco = '${Acocod}' and r.codeletrodo = '${Eletrodocod}'`)
+
+    return rows
+}
+innerRelSit('3','SAE-AISI-1012','E6013')
 module.exports = {
     getRelSitAco,
     getRelAcoEl, 
-    getRelSitEletrodo
+    getRelSitEletrodo,
+    innerRelSit,
 }
