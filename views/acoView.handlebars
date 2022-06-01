@@ -1,3 +1,4 @@
+
 {{#each acoGet}}
 <div class="d-inline-flex p-2">
         <div class="card" style="width: 18rem;">
@@ -5,11 +6,15 @@
                         <h4 class="card-title">{{ACODIGO}}</h4>
                         <b><p>{{ANOME}}</p></b>
                         <p class="card-text">{{ADESCRICAO}}</p>
-                        <a href="{{>selecionarLink}}/eletrodo/aco/{{ACODIGO}}" class="btn btn-primary">SELECIONAR</a>
+                        <a href="/eletrodo/aco/{{ACODIGO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>
 {{/each}}
+
+
+
+
 {{#each getRelSitAco}}
 <div class="d-inline-flex p-2">
         <div class="card h-100" style="width: 18rem;">
@@ -17,7 +22,7 @@
                         <h4 class="card-title">{{ACODIGO}}</h4>
                         <b><p>{{ANOME}}</p></b>
                         <p class="card-text">{{ADESCRICAO}}</p>
-                        <a href="{{>selecionarLink}}/eletrodo/{{ACODIGO}}" class="btn btn-primary">SELECIONAR</a>
+                        <a href="/eletrodo/{{ACODIGO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>

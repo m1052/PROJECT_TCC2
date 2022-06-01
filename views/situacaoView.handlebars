@@ -5,20 +5,20 @@
     <div class="card-body">
         <h5 class="card-title">{{SINOME}}</h5>
         <p class="card-text">{{SIDESCRICAO}}</p>
-        <a href="{{>selecionarLink}}/aco/{{idSit}}" class="btn btn-primary">SELECIONAR</a>
+        <a href="/aco/{{idSit}}" class="btn btn-primary">SELECIONAR</a>
     </div>
 </div>
 </div>
 {{/each}}
-{{#if getRelSitEl}}
-{{#eachUniqueSit getRelSitEl}}
+{{#if getRelAcoSit}}
+{{#eachUniqueSit getRelAcoSit}}
 
 <div class="d-inline-flex p-2">
         <div class="card" style="width: 18rem;">
                 <div class="card-body">
                         <h4 class="card-title">{{SINOME}}</h4>
                         <p class="card-text">{{SIDESCRICAO}}</p>
-                        <a href="{{>selecionarLink}}/historico/{{CODSITUACAO}}/{{CODACO}}/{{CODELETRODO}}" class="btn btn-primary">SELECIONAR</a>
+                        <a href="/historico/{{CODSITUACAO}}/{{CODACO}}/{{CODELETRODO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>

@@ -17,15 +17,15 @@ async function getRelAcoEl2(req, res) {
     res.render('eletrodoView', { getRelAcoEl2: rows })
 
 }
-//retorna situacao para um eletrodo
-async function getRelSitEl(req, res) {
-    let rows = await dbRel.getRelSitEletrodo(req.params.codeletrodo)
-    res.render('situacaoView', { getRelSitEl: rows })
+//retorna situacao para um aco
+async function getRelSAcoSit(req, res) {
+    let rows = await dbRel.getRelAcoSit(req.params.codaco)
+    res.render('situacaoView', { getRelAcoSit: rows })
 }
 
 module.exports = {
     getRelSitAco,
     getRelAcoEl,
-    getRelSitEl,
+    getRelSAcoSit,
     getRelAcoEl2
 }

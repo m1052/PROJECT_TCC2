@@ -1,26 +1,28 @@
-const db = require('./db')
-class usuario{
+const dbUser = require('./db')
+class usuario {
     _Nome
     _Senha
-
-    constructor (nome,senha){
+    _adm
+    constructor(nome, senha, adm) {
         this._Nome = nome
         this._Senha = senha
-    }
-setUsuario(){
-    //async function 
+        this._adm = adm
 
+    }
 }
+async function fidUserByName(name) {
+    const rows = await dbUser.main('*', 'usuario', 'NOME', name);
+    console.log(rows)
 }
+async function findUserByID(id) {
+    const rows = await dbUser.main('*', 'usuario', 'idUSUARIO', id);
+    console.log(rows)
+}
+fidUserByName('marco')
+findUserByID('1')
 module.exports = {
     usuario,
-}
-
-
-
-
-
-async function valUser(){
-    const dbuser = await db.main('*','usuario','us');
-
+    fidUserByName,
+    findUserByID
+    
 }

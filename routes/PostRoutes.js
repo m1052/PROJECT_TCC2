@@ -18,7 +18,7 @@ router.get('/login',(req,res)=>{
 })
 //rotas dinamicas
 router.get('/situacao', controlSit.get)
-router.get('/situacao/:codeletrodo', controlRel.getRelSitEl)
+router.get('/situacao/:codaco',controlRel.getRelSAcoSit)
 router.get('/aco', controlAco.get)
 router.get('/aco/relacao', controlAco.getAcoRel)
 router.get('/aco/:codSit',controlRel.getRelSitAco)
