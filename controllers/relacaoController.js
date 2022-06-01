@@ -23,7 +23,6 @@ async function getRelSitEl(req, res) {
     res.render('situacaoView', { getRelSitEl: rows })
 }
 
-
 module.exports = {
     getRelSitAco,
     getRelAcoEl,

@@ -13,20 +13,21 @@ const mysql = require('mysql2/promise');
   return rows;
 
 }
-//innner join dinamico
+//innner join dinamico com wherer
 async function inner(colm,tablea,tableb,primarya,primaryb,tableparams,params,val){
   let query = `select ${colm} from ${tablea} as a inner join ${tableb} as b  on  a.${primarya}  = b.${primaryb} where ${tableparams}.${params}='${val}'`
   let [rows] = await connection.query(query)
   return rows
-  //console.log(rows)
 }
-//insert dinamico
-async function insert(){
-  let query = ``
+//innner join dinamico sem wherer
+async function Simpleinner(colm,tablea,tableb,primarya,primaryb){
+  let query = `select ${colm} from ${tablea} as a inner join ${tableb} as b  on  a.${primarya}  = b.${primaryb}`
+  let [rows] = await connection.query(query)
+  return rows
 }
-
 module.exports = {
   main,
   inner,
+  Simpleinner,
   connection,
 };

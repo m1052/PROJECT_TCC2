@@ -20,6 +20,7 @@ router.get('/login',(req,res)=>{
 router.get('/situacao', controlSit.get)
 router.get('/situacao/:codeletrodo', controlRel.getRelSitEl)
 router.get('/aco', controlAco.get)
+router.get('/aco/relacao', controlAco.getAcoRel)
 router.get('/aco/:codSit',controlRel.getRelSitAco)
 router.get('/eletrodo',controEl.get)
 router.get('/eletrodo/aco/:codAco',controlRel.getRelAcoEl2)

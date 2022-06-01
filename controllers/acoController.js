@@ -1,12 +1,19 @@
 
-const db = require('../models/dbAco')
+const dbAco = require('../models/dbAco')
 //Retorna todos os aços na view
 async function get(req, res) {
-    let acoGetall = await db.getAcoAll().then(acoGet => {
-        res.render('acoView', { acoGet: acoGet })
-    })
+    let rows = await dbAco.getAcoAll()       
+    res.render('acoView', { acoGet: rows })
+}
+//Retorna somente aços q possuem uma relacao
+async function getAcoRel(req,res){
+    let rows = await dbAco.getAcoRel()
+    res.render('acoView',{acoGet: rows  } )
+
+
 }
 
 module.exports = {
-    get
+    get,
+    getAcoRel
 }
