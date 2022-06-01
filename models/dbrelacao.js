@@ -7,13 +7,13 @@ async function getRelSitAco(codsituacao) {
 //Retorna eletrodo para um  aço
 async function getRelAcoEl(codaco) {
     let rows = await db.inner('*', 'eletrodo', 'relacao', 'ecodigo', 'codeletrodo', 'b', 'codaco', codaco)
-    console.log(rows)
+   //console.log(rows)
     return rows;
 }
 //Retorna situacao para um eletrodo
 async function getRelSitEletrodo(codeletrodo) {
     let rows = await db.inner('*', 'situacao', 'relacao', 'idSit', 'CODSITUACAO', 'b', 'codeletrodo', codeletrodo)
-
+    // console.log(rows)
     return rows;
 }
 //retorna tudo de relacao para uma situacao

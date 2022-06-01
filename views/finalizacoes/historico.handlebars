@@ -1,4 +1,10 @@
+{{#if historico}}
 {{#each historico}}
-
-
+<p>{{idRel}}<p>
+<p>{{SINOME}}</p>
+<p>{{CODACO}}</p>
+<p>{{CODELETRODO}}</p>
 {{/each}}
+{{else}}
+<p class="d-flex align-items-center">Não foram realizadas consultas até o momento</p>
+{{/if}}

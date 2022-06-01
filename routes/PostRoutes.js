@@ -24,7 +24,9 @@ router.get('/aco/:codSit',controlRel.getRelSitAco)
 router.get('/eletrodo',controEl.get)
 router.get('/eletrodo/aco/:codAco',controlRel.getRelAcoEl2)
 router.get('/eletrodo/:codAco',controlRel.getRelAcoEl)
-router.get('/historico/:sitcod/:acocod/:eletrodocod',controHis.historico)
+router.get('/historico/:sitcod/:acocod/:eletrodocod',controHis.historicoparams)
+router.get('/historico',controHis.historico)
 
 module.exports = router;
 
+    

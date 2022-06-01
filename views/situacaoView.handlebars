@@ -1,5 +1,5 @@
-{{#each sitGet}}
 
+{{#each sitGet}}
 <div class="d-inline-flex p-2">
 <div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -10,14 +10,17 @@
 </div>
 </div>
 {{/each}}
-{{#each getRelSitEl}}
+{{#if getRelSitEl}}
+{{#eachUnique getRelSitEl}}
+
 <div class="d-inline-flex p-2">
         <div class="card" style="width: 18rem;">
                 <div class="card-body">
                         <h4 class="card-title">{{SINOME}}</h4>
                         <p class="card-text">{{SIDESCRICAO}}</p>
-                        <a href="#" class="btn btn-primary">SELECIONAR</a>
+                        <a href="{{>selecionarLink}}/historico/{{CODSITUACAO}}/{{CODACO}}/{{CODELETRODO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>
-{{/each}}
+{{/eachUnique}}
+{{/if}}
