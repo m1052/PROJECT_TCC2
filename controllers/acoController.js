@@ -8,6 +8,7 @@ async function get(req, res) {
 //Retorna somente aços q possuem uma relacao
 async function getAcoRel(req,res){
     let rows = await dbAco.getAcoRel()
+    console.log(rows)
     res.render('acoView',{acoGet: rows  } )
 
 

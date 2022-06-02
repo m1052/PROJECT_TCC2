@@ -3,7 +3,7 @@ var hist = []
 async function historicoparams(req, res) {
     let [rows] = await dbRel.innerRelSit(req.params.sitcod, req.params.acocod, req.params.eletrodocod)
     hist.push(rows)
-    //console.log(hist)
+   //console.log(hist)
     res.render('finalizacoes/historico',{historico: hist, layout:'historicoMain'})
 }
 async function historico(req, res) {

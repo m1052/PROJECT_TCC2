@@ -6,8 +6,8 @@ async function getAcoAll() {
 }
 //Retorna somente aços que estão possuem relação
 async function getAcoRel(){
-    let rows = await db.Simpleinner('*','aco','relacao','acodigo','codaco')
-      console.log(rows)
+    let rows = await db.Simpleinner('*','aco','relacao','idAco','codaco')
+     // console.log(rows)
       return rows
 
 }

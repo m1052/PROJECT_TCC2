@@ -25,9 +25,16 @@ async function Simpleinner(colm,tablea,tableb,primarya,primaryb){
   let [rows] = await connection.query(query)
   return rows
 }
+//innner join dinamico sem wherer
+async function Dubleinner(colm,tablea,tableb,primarya,primaryb,tableparamsA,paramsA,valA,tableparamsB,paramsB,valB,){
+  let query = `select ${colm} from ${tablea} as a inner join ${tableb} as b  on  a.${primarya}  = b.${primaryb} where ${tableparamsA}.${paramsA}='${valA}'and ${tableparamsB}.${paramsB} = '${valB}'`
+  let [rows] = await connection.query(query)
+  return rows
+}
 module.exports = {
   main,
   inner,
   Simpleinner,
+  Dubleinner,
   connection,
 };

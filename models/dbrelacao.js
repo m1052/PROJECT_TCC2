@@ -1,12 +1,12 @@
 const db = require('../models/db')
 //retorna aço para uma situação
 async function getRelSitAco(codsituacao) {
-    let rows = await db.inner('*', 'aco', 'relacao', 'acodigo', 'codaco', 'b', 'codsituacao', codsituacao)
+    let rows = await db.inner('*', 'aco', 'relacao', 'idAco', 'codaco', 'b', 'codsituacao', codsituacao)
     return rows;
 }
 //Retorna eletrodo para um  aço
-async function getRelAcoEl(codaco) {
-    let rows = await db.inner('*', 'relacao', 'eletrodo', 'codeletrodo', 'ecodigo', 'a', 'codaco', codaco)
+async function getRelAcoEl(codaco,codsituacao) {
+    let rows = await db.Dubleinner('*', 'relacao', 'eletrodo', 'codeletrodo', 'idEL', 'a', 'codaco', codaco,'a','codsituacao',codsituacao)
    //console.log(rows)
     return rows;
 }

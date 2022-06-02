@@ -5,16 +5,11 @@ async function getRelSitAco(req, res) {
         res.render('acoView', { getRelSitAco: rows })
     })
 }
-//retorno eletrodos para um aço
+//retorno eletrodos para um aço e situacao
 async function getRelAcoEl(req, res) {
-    let rows = await dbRel.getRelAcoEl(req.params.codAco)
+    let rows = await dbRel.getRelAcoEl(req.params.codAco,req.params.codSit)
+    //console.log(rows)
     res.render('eletrodoView', { getEletrodoAco: rows })
-
-}
-//retorno eletrodos para um aço utilizando metodo 2
-async function getRelAcoEl2(req, res) {
-    let rows = await dbRel.getRelAcoEl(req.params.codAco)
-    res.render('eletrodoView', { getRelAcoEl2: rows })
 
 }
 //retorna situacao para um aco
@@ -27,5 +22,5 @@ module.exports = {
     getRelSitAco,
     getRelAcoEl,
     getRelSAcoSit,
-    getRelAcoEl2
+  
 }
