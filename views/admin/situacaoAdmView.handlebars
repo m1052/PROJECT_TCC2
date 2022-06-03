@@ -1,0 +1,28 @@
+    <div class="container-xxl">
+        <h4>Lista de situações cadastradas:</h4>
+<form class="form-horizontal">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-highlight">
+      <thead>
+        <th>idSit</th>
+        <th>SINOME</th>
+        <th>SIDESCRICAO</th>
+      <tbody>
+  {{#if getSitAl}}
+{{#each getSitAl}}
+<tr>
+     
+          <td>{{idSit}}</td>
+          <td>{{SINOME}} </td>
+          <td>{{SIDESCRICAO}}</td>
+        </tr>
+{{/each}}
+{{else}}
+<p class="d-flex align-items-center">Não há aços cadastrados</p>
+{{/if}}
+    </div>
+    </tbody>
+    </table>
+  </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

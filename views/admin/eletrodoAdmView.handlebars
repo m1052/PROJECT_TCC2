@@ -1,0 +1,31 @@
+    <div class="container-xxl">
+        <h4>Lista de eletrodos cadastrados:</h4>
+<form class="form-horizontal">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-highlight">
+      <thead>
+        <th>idEl</th>
+        <th>ECODIGO</th>
+        <th>ENOME</th>
+        <th>EDESCRIÇÃO</th>
+      <tbody>
+  {{#if getElAl}}
+{{#each getElAl}}
+<tr>
+     
+          <td>{{idEl}}</td>
+          <td>{{ECODIGO}} </td>
+          <td>{{ENOME}}</td>
+          <td>{{EDESCRICAO}}</td>
+
+        </tr>
+{{/each}}
+{{else}}
+<p class="d-flex align-items-center">Não há eletrodos cadastrados</p>
+{{/if}}
+    </div>
+    </tbody>
+    </table>
+  </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

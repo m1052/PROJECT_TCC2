@@ -18,11 +18,19 @@ async function getRelAcoSit(codaco) {
 }
 //retorna tudo de relacao para uma situacao
 async function innerRelSit(Sitcod, Acocod, Eletrodocod) {
-    let [rows] = await db.connection.query(`select * from relacao as r inner join situacao as s on r.codsituacao = s.idSit where r.codsituacao = '${Sitcod}' and r.codaco = '${Acocod}' and r.codeletrodo = '${Eletrodocod}'`)
-
+    let [rows] = await db.connection.query(`
+    
+    select  r.idRel,s.sinome,a.acodigo,e.ecodigo from aco as a 
+    inner join relacao as r on r.codaco = a.idAco 
+    inner join eletrodo as e on r.codeletrodo = e.idEl 
+    inner join situacao as s on r.codsituacao = s.idSit
+    where r.codsituacao = ${Sitcod} and r.codaco = ${Acocod} and r.codeletrodo = ${Eletrodocod};
+    
+    
+    `)
+    //console.log(rows)
     return rows
 }
-
 module.exports = {
     getRelSitAco,
     getRelAcoEl,

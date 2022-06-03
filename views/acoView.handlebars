@@ -1,16 +1,18 @@
 
-{{#each acoGet}}
+{{#if acoGet}}
+{{#eachUniqueAco acoGet}}
 <div class="d-inline-flex p-2">
         <div class="card" style="width: 18rem;">
                 <div class="card-body">
                         <h4 class="card-title">{{ACODIGO}}</h4>
                         <b><p>{{ANOME}}</p></b>
                         <p class="card-text">{{ADESCRICAO}}</p>
-                        <a href="/situacao/{{CODACO}}" class="btn btn-primary">SELECIONAR</a>
+                        <a href="/usuario/situacao/{{CODACO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>
-{{/each}}
+{{/eachUniqueAco}}
+{{/if}}
 {{#each getRelSitAco}}
 <div class="d-inline-flex p-2">
         <div class="card h-100" style="width: 18rem;">
@@ -18,7 +20,7 @@
                         <h4 class="card-title">{{ACODIGO}}</h4>
                         <b><p>{{ANOME}}</p></b>
                         <p class="card-text">{{ADESCRICAO}}</p>
-                        <a href="/eletrodo/{{CODACO}}/{{CODSITUACAO}}" class="btn btn-primary">SELECIONAR</a>
+                        <a href="/usuario/eletrodo/{{CODACO}}/{{CODSITUACAO}}" class="btn btn-primary">SELECIONAR</a>
                 </div>
         </div>
 </div>

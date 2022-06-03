@@ -1,20 +1,13 @@
 const express = require('express');
 const router = express();
-const controlAco = require('../controllers/acoController')
-const controlRel = require('../controllers/relacaoController')
-const controlSit = require('../controllers/situcaoController')
-const controEl = require('../controllers/eletrodoController')
-const controHis = require('../controllers/historicoController')
-//Rotas estaticas
-router.get('/', function (req, res) {
-    res.redirect('/login')
+const controlAco = require('../../controllers/acoController')
+const controlRel = require('../../controllers/relacaoController')
+const controlSit = require('../../controllers/situcaoController')
+const controEl = require('../../controllers/eletrodoController')
+const controHis = require('../../controllers/historicoController')
 
-})
 router.get('/index',(req,res)=>{
     res.render('indexView')
-})
-router.get('/login',(req,res)=>{
-    res.render('login/login',{layout:'loginMain'})
 })
 //rotas dinamicas
 router.get('/situacao', controlSit.get)
@@ -26,7 +19,4 @@ router.get('/eletrodo',controEl.get)
 router.get('/eletrodo/:codAco/:codSit',controlRel.getRelAcoEl)
 router.get('/historico/:sitcod/:acocod/:eletrodocod',controHis.historicoparams)
 router.get('/historico',controHis.historico)
-
 module.exports = router;
-
-    
