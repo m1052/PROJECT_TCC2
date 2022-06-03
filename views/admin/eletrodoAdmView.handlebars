@@ -1,29 +1,32 @@
-    <div class="container-xxl">
-        <h4>Lista de eletrodos cadastrados:</h4>
-<form class="form-horizontal">
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped table-highlight">
-      <thead>
-        <th>idEl</th>
-        <th>ECODIGO</th>
-        <th>EDESCRIÇÃO</th>
-      <tbody>
-  {{#if getElAl}}
-{{#each getElAl}}
-<tr>
-     
-          <td>{{idEl}}</td>
-          <td>{{ECODIGO}} </td>
-          <td>{{EDESCRICAO}}</td>
+<div class="container-xxl">
+  <h4>Lista de eletrodos cadastrados:</h4>
+  <form class="form-horizontal">
+    <div class=" mb-2">
+      <a href="#" class="btn btn-primary btn-md">Novo</a>
+      <button type="submit" class="btn btn-primary ">salvar</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-highlight">
+        <thead>
+          <th>idEl</th>
+          <th>ECODIGO</th>
+          <th>EDESCRIÇÃO</th>
+        <tbody>
+          {{#if getElAl}}
+          {{#each getElAl}}
+          <tr>
 
-        </tr>
-{{/each}}
-{{else}}
-<p class="d-flex align-items-center">Não há eletrodos cadastrados</p>
-{{/if}}
+            <td>{{idEl}}</td>
+            <td>{{ECODIGO}} </td>
+            <td>{{EDESCRICAO}}</td>
+
+          </tr>
+          {{/each}}
+          {{else}}
+          <p class="d-flex align-items-center">Não há eletrodos cadastrados</p>
+          {{/if}}
     </div>
     </tbody>
     </table>
-  </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+</div>
 </form>

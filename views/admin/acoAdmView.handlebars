@@ -1,31 +1,34 @@
-    <div class="container-xxl">
-        <h4>Lista de aços cadastrados:</h4>
-<form class="form-horizontal">
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped table-highlight">
-      <thead>
-        <th>idAco</th>
-        <th>ACODIGO</th>
-        <th>ANOME</th>
-        <th>ADESCRIÇÃO</th>
-      <tbody>
-  {{#if getAcoAl}}
-{{#each getAcoAl}}
-<tr>
-     
-          <td>{{idAco}}</td>
-          <td>{{ACODIGO}} </td>
-          <td>{{ANOME}}</td>
-          <td>{{ADESCRICAO}}</td>
+<div class="container-xxl">
+  <h4>Lista de aços cadastrados:</h4>
+  <form class="form-horizontal">
+    <div class=" mb-2">
+      <a href="#" class="btn btn-primary btn-md">Novo</a>
+      <button type="submit" class="btn btn-primary ">salvar</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-highlight">
+        <thead>
+          <th>idAco</th>
+          <th>ACODIGO</th>
+          <th>ANOME</th>
+          <th>ADESCRIÇÃO</th>
+        <tbody>
+          {{#if getAcoAl}}
+          {{#each getAcoAl}}
+          <tr>
 
-        </tr>
-{{/each}}
-{{else}}
-<p class="d-flex align-items-center">Não há aços cadastradas</p>
-{{/if}}
+            <td>{{idAco}}</td>
+            <td>{{ACODIGO}} </td>
+            <td>{{ANOME}}</td>
+            <td>{{ADESCRICAO}}</td>
+
+          </tr>
+          {{/each}}
+          {{else}}
+          <p class="d-flex align-items-center">Não há aços cadastradas</p>
+          {{/if}}
     </div>
     </tbody>
     </table>
-  </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+</div>
 </form>
