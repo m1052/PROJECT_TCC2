@@ -1,4 +1,4 @@
-const db = require('../models/dbeletrodo')
+const db = require('../database/dbeletrodo')
 //retorna todos os eletrodos na view
 async function get(req,res){
     let rows = await db.getEletrodo()

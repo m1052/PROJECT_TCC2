@@ -1,4 +1,4 @@
-const dbRel = require('../models/dbrelacao')
+const dbRel = require('../database/dbrelacao')
 var hist = [] 
 //adiciona a relacao para uma associacao, e retorna para  o array hist
 async function historicoparams(req, res) {
@@ -8,9 +8,7 @@ async function historicoparams(req, res) {
     res.render('finalizacoes/historico',{historico: hist, layout:'historicoMain'})
 }
 //Retorna  o historico sem adicionar
-async function historico(req, res) {
- 
-   // console.log(hist)
+function historico(req, res) {
     res.render('finalizacoes/historico',{historico: hist,layout:'historicoMain'})
 }
 module.exports= {

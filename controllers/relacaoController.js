@@ -1,4 +1,4 @@
-const dbRel = require('../models/dbrelacao')
+const dbRel = require('../database/dbrelacao')
 //retorna aços para uma situação
 async function getRelSitAco(req, res) {
     let rows = await dbRel.getRelSitAco(req.params.codSit).then(rows => {

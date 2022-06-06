@@ -1,1 +1,1 @@
-const user = require('../models/dbusuario')
+const user = require('../database/dbusuario')
