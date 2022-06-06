@@ -28,5 +28,5 @@ router.get('/cadastro/usuario',(req,res)=>{
     res.render('admin/cadForms/cadastroUsuarioView',{layout:'admMain'})
 })
 //Post Routes
-router.post('/cadastro/aco')
+router.post('/cadastro/aco',controllerAdm.insertAco)
 module.exports = router;
