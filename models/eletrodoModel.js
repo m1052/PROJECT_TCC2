@@ -1,20 +1,18 @@
-const dbAco = require('../database/dbAco')
-class Aco {
-    _nome
+const dbEl = require('../database/dbeletrodo')
+class Eletrodo {
+
     _codigo
     _descricao
-    constructor(nome, codigo, descricao) {
-        this._nome = nome
+    constructor(codigo, descricao) {
+
         this._descricao = descricao
         this._codigo = codigo
     }
-    saveAco() {
+    saveEletrodo() {
         //valida os campos antes de salvar
         var erros = []
         var success = []
-        if (!this._nome || typeof this._nome == undefined || this._nome == null) {
-            erros.push({ error: 'nome invaliado' })
-        }
+    
         if (!this._codigo || typeof this._codigo == undefined || this._codigo == null) {
             erros.push({ error: 'codigo invaliado' })
 
@@ -28,9 +26,9 @@ class Aco {
         else {
             //salva no o novo aço no banco
 
-           dbAco.insertAco(this._nome, this._codigo, this._descricao)
-           success.push({success: 'cadastrado com sucesso'})
-           return success
+            dbEl.insertEletrodo(this._codigo, this._descricao)
+            success.push({ success: 'cadastrado com sucesso' })
+            return success
         }
 
     }
@@ -39,5 +37,5 @@ class Aco {
 
 
 module.exports = {
-    Aco
+    Eletrodo
 };

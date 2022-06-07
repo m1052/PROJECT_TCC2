@@ -10,14 +10,26 @@ async function getAcoRel() {
     return rows
 
 }
+//insere um aco somente se n existir outro com mesmo codigo aws no banco
 async function insertAco(anome, acodigo, adescricao) {
     const query = `insert into aco (anome,acodigo,adescricao) values ('${anome}','${acodigo}','${adescricao}')`
-    db.connection.query(query)
+    let rows = await db.main('*', 'ACO', 'acodigo', acodigo).then((rows) => {
+        if (rows.length > 0) {
+            const msg = " ja consta o codigo do aço no banco de dados"
+            return msg
+        } else {
+            db.connection.query(query)
+            const msg = " cadastro realizado com sucesso"
+            return msg
+        }
+    })
+    return rows
 }
 
-//console.log(marco)
+
 module.exports = {
     getAcoAll,
     getAcoRel,
     insertAco,
-    }
+    
+}

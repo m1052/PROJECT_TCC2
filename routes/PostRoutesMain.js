@@ -10,11 +10,12 @@ router.get('/', function (req, res) {
     res.redirect('/login')
 
 })
-
-router.get('/login',(req,res)=>{
-    res.render('login/loginFormView',{layout:'loginMain'})
+router.get('/login', (req, res) => {
+    res.render('login/loginFormView', { layout: 'loginMain' })
+})
+router.get('/cadastro/usuario', (req, res) => {
+    res.render('admin/cadForms/cadastroUsuarioView', { layout: 'admMain' })
 })
 
 module.exports = router;
 
-    

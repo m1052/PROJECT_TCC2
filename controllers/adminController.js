@@ -1,6 +1,9 @@
 const dbSit = require('../database/dbsituacao')
 const dbAco = require('../database/dbAco')
 const dbEl = require('../database/dbeletrodo')
+const {Aco} = require('../models/acoModel')
+const {Eletrodo} = require('../models/eletrodoModel')
+const {Situacao} = require('../models/situacaoModel')
 //Retorna todos os aços
 async function getSitAll(req, res) {
     let rows = await dbSit.getSitAll()
@@ -18,27 +21,27 @@ async function getElAll(req, res) {
 
 }
 //rotas de cadastro
-function insertAco(req,res){
-    var erros = []
-    if(!req.body.nome||typeof req.body.nome == undefined || req.body.nome == null){
-        erros.push({texto:'nome invaliado'})
-    }
-    if(!req.body.cod||typeof req.body.cod == undefined || req.body.cod == null){
-        erros.push({texto:'codigo invaliado'})
-
-    }
-    if(!req.body.dsc||typeof req.body.dsc == undefined || req.body.dsc == null){
-        erros.push({texto:'descrição invaliada'})
-    }
-    if(erros.length > 0){
-        res.render('admin/cadForms/cadastroAcoView',{erros: erros})
-    }
-    
-
+//inserte aço
+ function insertAco(req,res){
+     aco  =  new Aco(req.body.nome,req.body.cod,req.body.dsc,).saveAco()
+     res.render('admin/cadForms/cadastroAcoView',{msg: aco, layout: 'admMain'})
 }
+//inserte eletrodo
+function insertEletrodo(req,res){
+    eletrodo  =  new Eletrodo(req.body.cod,req.body.dsc,).saveEletrodo()
+    res.render('admin/cadForms/cadastroEletrodoView',{msg: eletrodo, layout: 'admMain'})
+}
+//insere nova situacao
+function insertSituacao(req,res){
+    situacao  =  new Situacao(req.body.nome,req.body.dsc,).saveSituacao()
+    res.render('admin/cadForms/cadastroEletrodoView',{msg: situacao, layout: 'admMain'})
+}
+
 module.exports = {
     getSitAll,
     getAcoAll,
     getElAll,
-    insertAco
+    insertAco,
+    insertEletrodo,
+    insertSituacao
 }

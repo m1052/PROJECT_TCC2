@@ -1,5 +1,10 @@
-{{#if erros}}
-{{#each erros}}
-<div class="alert alert-danger">{{texto}}</div>
+{{#each msg}}
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
 {{/each}}
- {{/if}}
+{{#each msg}}
+{{#if success}}
+<div class="alert alert-success">{{success}}</div>
+{{/if}}
+{{/each}}
