@@ -1,5 +1,4 @@
 const express = require('express');
-const { redirect } = require('statuses');
 const router = express();
 const controllerAdm = require('../../controllers/adminController')
 
@@ -14,7 +13,7 @@ router.get('/index',(req,res)=>{
 router.get('/situacao',controllerAdm.getSitAll)
 router.get('/aco',controllerAdm.getAcoAll)
 router.get('/eletrodo',controllerAdm.getElAll)
-//Get routes fporms de cadastro
+//Get routes forms de cadastro
 router.get('/cadastro/aco',(req,res)=>{
     res.render('admin/cadForms/cadastroAcoView',{layout:'admMain'})
 })

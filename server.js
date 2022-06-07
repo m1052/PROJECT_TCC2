@@ -4,6 +4,16 @@ const port = 3000;
 const path = require('path');
 const bodyParser = require('body-parser')
 const { hnd } = require('./handlebarsConfig');
+const session = require('express-session');
+//const passport = require('./auth')
+//sessao
+app.use(session({
+    secret: "H3f4stoSistemSolda@123",
+    resave: true,
+    saveUninitialized: true
+}))
+//passport
+//app.use(passport.initialize())
 //static path
 app.use(express.static(path.join(__dirname, "static")))
 //handlebars

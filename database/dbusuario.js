@@ -1,18 +1,33 @@
-const dbUser = require('./db')
-
-async function fidUserByName(name) {
-    const rows = await dbUser.main('*', 'usuario', 'NOME', name);
+const db = require('./db')
+//busca usuario por nome
+async function fidUserByEmail(email) {
+    const rows = await db.main('*', 'usuario', 'email', email);
     console.log(rows)
 }
+//busca usuario por id
 async function findUserByID(id) {
-    const rows = await dbUser.main('*', 'usuario', 'idUSUARIO', id);
+    const rows = await db.main('*', 'usuario', 'idUSUARIO', id);
     console.log(rows)
 }
-fidUserByName('marco')
-findUserByID('1')
+//inseri um novo usuario
+async function insertUsuario(nome,email,senha){
+    const query = `insert into usuario (nome,email,senha) values ('${nome}','${email}','${senha}')`
+    let rows = await db.main('*', 'usuario', 'email', email).then((rows) => {
+        if (rows.length > 0) {
+            const msg = " ja consta o codigo do aço no banco de dados"
+            return msg
+        } else {
+            db.connection.query(query)
+            const msg = " cadastro realizado com sucesso"
+            return msg
+        }
+    })
+    return rows
+}
+
 module.exports = {
-    usuario,
-    fidUserByName,
+    insertUsuario,
+    fidUserByEmail,
     findUserByID
     
 }
