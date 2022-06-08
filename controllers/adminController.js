@@ -34,7 +34,7 @@ function insertEletrodo(req,res){
 //insere nova situacao
 function insertSituacao(req,res){
     situacao  =  new Situacao(req.body.nome,req.body.dsc,).saveSituacao()
-    res.render('admin/cadForms/cadastroEletrodoView',{msg: situacao, layout: 'admMain'})
+    res.render('admin/cadForms/cadastroSituacaoView',{msg: situacao, layout: 'admMain'})
 }
 
 module.exports = {
