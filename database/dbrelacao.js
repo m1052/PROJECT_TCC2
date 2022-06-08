@@ -26,9 +26,17 @@ async function innerRelSit(Sitcod, Acocod, Eletrodocod) {
     let [rows] = await db.connection.query(query)
     return rows
 }
+//retorna uma relacao
+async function getRelacaoById(idRel){
+    let rows = await db.main('*', 'relacao', 'idRel',idRel)
+   // console.log(rows)
+    return rows
+}
+//getRelacaoById('1')
 module.exports = {
     getRelSitAco,
     getRelAcoEl,
     getRelAcoSit,
     innerRelSit,
+    getRelacaoById
 }

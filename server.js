@@ -5,15 +5,25 @@ const path = require('path');
 const bodyParser = require('body-parser')
 const { hnd } = require('./handlebarsConfig');
 const session = require('express-session');
-//const passport = require('./auth')
-//sessao
+const flash = require('connect-flash')
+const passport = require('passport')
+require('./auth')(passport)
 app.use(session({
     secret: "H3f4stoSistemSolda@123",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false
 }))
 //passport
-//app.use(passport.initialize())
+app.use(passport.initialize());
+app.use(passport.session());
+//middleware
+app.use(flash())
+app.use((req,res,next)=>{
+    res.locals.sucess_msg = req.flash("sucess_msg") 
+    res.locals.error = req.flash("error")
+    res.locals.user = req.user || null
+    next()
+})
 //static path
 app.use(express.static(path.join(__dirname, "static")))
 //handlebars

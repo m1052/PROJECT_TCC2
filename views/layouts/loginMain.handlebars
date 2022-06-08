@@ -9,11 +9,30 @@
     <title>TCC</title>
 </head>
 <body>
-  <div class="container-fluid bg-dark d-inline-flex align-items-center justify-content-center">
-    <img src="/images/logosite.png" alt="" width="80" height="80">
-    <h4 style="font-family: DalekPinpointBold; color: white;">HEFESTO</h4>
+ <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark ">
+  <div class="container-fluid">
+    <a href="/"><img src="/images/logosite.png" alt="" width="80" height="80"></a>
+    <a class="navbar-brand" href="/" style="font-family: DalekPinpointBold;">HEFESTO</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/cadastro/usuario">Cadastro</a>
+        </li>
+        
+      </ul>
     </div>
+  </div>
+</nav>
+
     <div class="container-md mt-5 shadow p-3 mb-5 bg-body rounded">
+      {{>msg}}
     {{{body}}}
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

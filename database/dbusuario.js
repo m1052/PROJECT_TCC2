@@ -2,12 +2,12 @@ const db = require('./db')
 //busca usuario por nome
 async function fidUserByEmail(email) {
     const rows = await db.main('*', 'usuario', 'email', email);
-    console.log(rows)
+    return rows
 }
 //busca usuario por id
 async function findUserByID(id) {
-    const rows = await db.main('*', 'usuario', 'idUSUARIO', id);
-    console.log(rows)
+    const rows = await db.main('*', 'usuario', 'idUSer', id);
+   return rows
 }
 //inseri um novo usuario
 async function insertUsuario(nome,email,senha){
@@ -24,7 +24,6 @@ async function insertUsuario(nome,email,senha){
     })
     return rows
 }
-
 module.exports = {
     insertUsuario,
     fidUserByEmail,
