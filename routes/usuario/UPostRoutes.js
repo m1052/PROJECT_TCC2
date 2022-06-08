@@ -5,6 +5,7 @@ const controlRel = require('../../controllers/relacaoController')
 const controlSit = require('../../controllers/situcaoController')
 const controEl = require('../../controllers/eletrodoController')
 const controHis = require('../../controllers/historicoController')
+const controlFavorito = require('../../controllers/favoritoController');
 
 router.get('/index',(req,res)=>{
     res.render('indexView')
@@ -19,4 +20,6 @@ router.get('/eletrodo',controEl.get)
 router.get('/eletrodo/:codAco/:codSit',controlRel.getRelAcoEl)
 router.get('/historico/:sitcod/:acocod/:eletrodocod',controHis.historicoparams)
 router.get('/historico',controHis.historico)
+//post route
+router.post('/cadastro/favorito',controlFavorito.insertFavorito)
 module.exports = router;
