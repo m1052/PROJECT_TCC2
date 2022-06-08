@@ -22,6 +22,7 @@ app.use((req,res,next)=>{
     res.locals.sucess_msg = req.flash("sucess_msg") 
     res.locals.error = req.flash("error")
     res.locals.user = req.user || null
+    res.locals.hist = []
     next()
 })
 //static path
