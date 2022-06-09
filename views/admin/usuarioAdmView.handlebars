@@ -1,0 +1,31 @@
+<div class="container-xxl">
+  <h4>Lista de usuarios cadastrados:</h4>
+      <a href="/admin/cadastro/usuario" class="btn btn-primary btn-md mb-2  ">Novo</a>
+      <br>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-highlight">
+        <thead>
+           
+          <th>idUser</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Opções</th>
+        <tbody>
+          {{#if getUserAll}}
+          {{#each getUserAll}}
+          <tr>
+            
+            <td>{{idUser}}</td> 
+            <td>{{NOME}} </td>
+            <td>{{EMAIL}}</td>
+            <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
+
+          </tr>
+          {{/each}}
+          {{else}}
+          <p class="d-flex align-items-center">Não há usuarios cadastrados</p>
+          {{/if}}
+    </div>
+    </tbody>
+    </table>
+</div>

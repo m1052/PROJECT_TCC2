@@ -1,11 +1,17 @@
 const dbRel = require('../database/dbrelacao')
-var hist = [] 
+const {Historico} = require('../models/historicoModel')
 //adiciona a relacao para uma associacao, e retorna para  o array hist
 async function historicoparams(req, res) {
     let [rows] = await dbRel.innerRelSit(req.params.sitcod, req.params.acocod, req.params.eletrodocod)
-    hist.push(rows)
-   //console.log(hist)
-    res.render('finalizacoes/historico',{historico: hist, layout:'historicoMain'})
+    if(!req.user|| typeof req.user == undefined || req.user == null){
+       let {idUser} = req.user[0]
+        hist = new Historico(rows.idRel,idUser)
+        hist.saveHistorico()
+    }
+    res.redirect('/usuario/index')
+   
+    
+   // res.render('finalizacoes/historico',{historico: hist, layout:'historicoMain'})
 }
 //Retorna  o historico sem adicionar
 function historico(req, res) {

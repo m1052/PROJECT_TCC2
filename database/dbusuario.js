@@ -1,4 +1,9 @@
 const db = require('./db')
+//retorna todos os usuarios
+async function getUserAll(email) {
+    const rows = await db.main('*', 'usuario', '1', '1');
+    return rows
+}
 //busca usuario por nome
 async function fidUserByEmail(email) {
     const rows = await db.main('*', 'usuario', 'email', email);
@@ -27,6 +32,7 @@ async function insertUsuario(nome,email,senha){
 module.exports = {
     insertUsuario,
     fidUserByEmail,
-    findUserByID
+    findUserByID,
+    getUserAll
     
 }

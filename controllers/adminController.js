@@ -1,6 +1,7 @@
 const dbSit = require('../database/dbsituacao')
 const dbAco = require('../database/dbAco')
 const dbEl = require('../database/dbeletrodo')
+const dbUser = require('../database/dbusuario')
 const {Aco} = require('../models/acoModel')
 const {Eletrodo} = require('../models/eletrodoModel')
 const {Situacao} = require('../models/situacaoModel')
@@ -15,10 +16,16 @@ async function getAcoAll(req, res) {
     let rows = await dbAco.getAcoAll()
     res.render('admin/acoAdmView', { getAcoAl: rows, layout: 'admMain' })
 }
+
+//retorna todos os eletrodos
 async function getElAll(req, res) {
     let rows = await dbEl.getEletrodo()
     res.render('admin/eletrodoAdmView', { getElAl: rows, layout: 'admMain' })
-
+}
+//retorna todos os usuarios
+async function getUserAll(req, res) {
+    let rows = await dbUser.getUserAll()
+    res.render('admin/usuarioAdmView', { getUserAll: rows, layout: 'admMain' })
 }
 //rotas de cadastro
 //inserte aço
@@ -41,6 +48,7 @@ module.exports = {
     getSitAll,
     getAcoAll,
     getElAll,
+    getUserAll,
     insertAco,
     insertEletrodo,
     insertSituacao

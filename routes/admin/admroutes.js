@@ -13,6 +13,7 @@ router.get('/index',(req,res)=>{
 router.get('/situacao',controllerAdm.getSitAll)
 router.get('/aco',controllerAdm.getAcoAll)
 router.get('/eletrodo',controllerAdm.getElAll)
+router.get('/usuario',controllerAdm.getUserAll)
 //Get routes forms de cadastro
 router.get('/cadastro/aco',(req,res)=>{
     res.render('admin/cadForms/cadastroAcoView',{layout:'admMain'})
@@ -22,6 +23,9 @@ router.get('/cadastro/eletrodo',(req,res)=>{
 })
 router.get('/cadastro/situacao',(req,res)=>{
     res.render('admin/cadForms/cadastroSituacaoView',{layout:'admMain'})
+})
+router.get('/cadastro/usuario',(req,res)=>{
+    res.render('admin/cadForms/cadastroUsuarioView',{layout:'admMain'})
 })
 
 //Post Routes

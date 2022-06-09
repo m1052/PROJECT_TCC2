@@ -32,6 +32,8 @@ class usuario {
         if (this._Senha != this._Senha2) {
             erros.push({ error: 'as senhas digitadas não são iguais' })
 
+        }if(this._Nome.length > 45 || this._email > 45){
+            erros.push({ error: 'nome ou email muito extenso' })
         }
         if (erros.length > 0) {
             return erros
