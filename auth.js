@@ -7,20 +7,22 @@ module.exports = function (passport) {
     
     passport.use(new localStrategy({usernameField: 'email', passwordField: 'senha'},(email,senha,done)=>{
         dbusuario.fidUserByEmail(email).then(usuario =>{
-            if(!usuario){
+            if(!usuario || typeof usuario == undefined || usuario == null){
                 done(null,false,{message: "Essa conta não existe"})
-            }
-            bcrypt.compare(senha,usuario[0].SENHA,(erro, batem)=>{
+            }else{
+            bcrypt.compare(senha,usuario.SENHA,(erro, batem)=>{
                 if(batem){
                     return done(null,usuario)
                 }else{
                     return done(null,false,{message: "Senha incorreta"})
                 }
             })
-        })
+        }
+    })
+    
     }))
     passport.serializeUser((usuario, done) => {
-        done(null, usuario[0].idUser);
+        done(null, usuario.idUser);
     });
  
     passport.deserializeUser(async (id, done) => {

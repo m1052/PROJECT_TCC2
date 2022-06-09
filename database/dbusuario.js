@@ -6,7 +6,8 @@ async function getUserAll(email) {
 }
 //busca usuario por nome
 async function fidUserByEmail(email) {
-    const rows = await db.main('*', 'usuario', 'email', email);
+    const [rows] = await db.main('*', 'usuario', 'email', email);
+    //console.log(rows)
     return rows
 }
 //busca usuario por id
