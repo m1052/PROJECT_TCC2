@@ -9,10 +9,18 @@ class Historico {
         this._idRel = idRel
     }
     saveHistorico() {
-     
-          dbHist.insertHistorico(this._idRel, this._idUser)
-          
-        }
+
+        dbHist.insertHistorico(this._idRel, this._idUser)
+
+    }
+    async allHist() {
+        console.log(this._idUser)
+        let rows = await dbHist.getHistoricoUser(this._idUser).then(rows =>{
+            return rows
+        })
+      console.log(rows)
+        return rows
+    }
 
 
 
