@@ -11,6 +11,7 @@ router.get('/index', (req, res) => {
 })
 //Get routes
 router.get('/situacao', controllerAdm.getSitAll)
+router.get('/relacao', controllerAdm.getRelAll)
 router.get('/aco', controllerAdm.getAcoAll)
 router.get('/eletrodo', controllerAdm.getElAll)
 router.get('/usuario', controllerAdm.getUserAll)

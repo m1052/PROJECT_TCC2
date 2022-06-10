@@ -7,7 +7,7 @@ const { Eletrodo } = require('../models/eletrodoModel')
 const { Situacao } = require('../models/situacaoModel')
 const { Relacao } = require('../models/relacaoModel')
 //retorna todas as relações
-async function getRelAll() {
+async function getRelAll(req,res) {
     relacao = new Relacao()
     relacao.getAll().then(rows =>{
         res.render('admin/relacaoAdmView',{getRelacaoAll: rows})
