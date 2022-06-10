@@ -1,6 +1,4 @@
-const res = require('express/lib/response')
 const db = require('../database/dbfavorito')
-const dbRel = require('../database/dbrelacao')
 class Favorito {
     _idRel
     _idUser
@@ -9,25 +7,28 @@ class Favorito {
         this._idUser = idUser
 
     }
-    saveFav() {
-        var erros = []
-        var success = []
-        db.getFavRel(this._idRel).then(rows => {
+   async saveFav() {
+        var msg = []
+        let rows = await db.getFavRel(this._idUser, this._idRel)
             if (rows.length > 0) {
-                erros.push({ erros: "Relação já consta no banco de dados" })
-                return erros
+                msg.push({ error: "Relação já consta em favoritos" })
+                return msg
             } else {
-                success.push({success: "Cadastrado com sucesso"})
+                msg.push({success: "Salvo com sucesso"})
                 db.insertFavorito(this._idRel,this._idUser)
-                return success
+                return msg
             }
-        }
+        
 
-        )
-
+    }
+  async  getAllFav(){
+       let [rows] = await db.getFavAll(this._idUser)
+       return rows
     }
 
 }
+marco = new Favorito
+marco.getAllFav()
 module.exports = {
     Favorito,
 }

@@ -1,0 +1,27 @@
+<div class="container-xxl">
+    <h4>Lista de consultas salvas:</h4>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-highlight">
+                <thead>
+                    <th>Codigo do aço</th>
+                    <th>Codigo do eletrodo</th>
+                    <th>Nome da situação</th>
+                <tbody>
+                    {{#if getFavAll}}
+                    {{#each getFavAll}}
+                    <tr>
+
+                        <td>{{acodigo}}</td>
+                        <td>{{ecodigo}} </td>
+                        <td>{{sinome}}</td>
+                         <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a></td>
+                    </tr>
+                    {{/each}}
+                    {{else}}
+                    <p class="d-flex align-items-center">Não há consultas salvas</p>
+                    {{/if}}
+        </div>
+        </tbody>
+        </table>
+</div>

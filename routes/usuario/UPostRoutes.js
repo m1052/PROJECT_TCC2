@@ -17,9 +17,9 @@ router.get('/aco', controlAco.get)
 router.get('/aco/relacao', controlAco.getAcoRel)
 router.get('/aco/:codSit',controlRel.getRelSitAco)
 router.get('/eletrodo',controEl.get)
+router.get('/favorito',controlFavorito.getFavAll)
 router.get('/eletrodo/:codAco/:codSit',controlRel.getRelAcoEl)
 router.get('/historico/:sitcod/:acocod/:eletrodocod',controHis.historicoparams)
-router.get('/historico',controHis.historico)
 //post route
 router.post('/cadastro/favorito',controlFavorito.insertFavorito)
 module.exports = router;
