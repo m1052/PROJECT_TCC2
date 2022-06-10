@@ -19,6 +19,7 @@ router.get('/usuario', controllerAdm.getUserAll)
 router.get('/cadastro/aco', (req, res) => {
     res.render('admin/cadForms/cadastroAcoView', { layout: 'admMain' })
 })
+router.get('/cadastro/relacao',controllerAdm.montaCadastroRelacao)
 router.get('/cadastro/eletrodo', (req, res) => {
     res.render('admin/cadForms/cadastroEletrodoView', { layout: 'admMain' })
 })
@@ -32,8 +33,10 @@ router.get('/gerencia', (req, res) => {
 
     res.redirect('/admin/index')
 })
+
 //Post Routes
 router.post('/cadastro/aco', controllerAdm.insertAco)
 router.post('/cadastro/eletrodo', controllerAdm.insertEletrodo)
 router.post('/cadastro/situacao', controllerAdm.insertSituacao)
+router.post('/cadastro/relacao',controllerAdm.insertRelacao)
 module.exports = router;

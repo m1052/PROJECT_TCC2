@@ -6,12 +6,13 @@ const { Aco } = require('../models/acoModel')
 const { Eletrodo } = require('../models/eletrodoModel')
 const { Situacao } = require('../models/situacaoModel')
 const { Relacao } = require('../models/relacaoModel')
+
 //retorna todas as relações
-async function getRelAll(req,res) {
+async function getRelAll(req, res) {
     relacao = new Relacao()
-    relacao.getAll().then(rows =>{
-        res.render('admin/relacaoAdmView',{getRelacaoAll: rows})
-    })
+    let rows = await relacao.getAll()
+    res.render('admin/relacaoAdmView', { getRelacaoAll: rows, layout: 'admMain' })
+
 
 }
 //Retorna todos os aços
@@ -36,7 +37,14 @@ async function getUserAll(req, res) {
     let rows = await dbUser.getUserAll()
     res.render('admin/usuarioAdmView', { getUserAll: rows, layout: 'admMain' })
 }
+//cadastro relacao monta tela
+async function montaCadastroRelacao(req, res) {
+    let Aco = await dbAco.getAcoAll()
+    let eletrodo = await dbEl.getEletrodo()
+    let situacao = await dbSit.getSitAll()
+    res.render('admin/cadForms/cadastroRelacaoView', { Aco: Aco, eletrodo: eletrodo, situacao: situacao,  layout: 'admMain'  })
 
+}
 
 //rotas de cadastro
 //inserte aço
@@ -54,6 +62,15 @@ function insertSituacao(req, res) {
     situacao = new Situacao(req.body.nome, req.body.dsc,).saveSituacao()
     res.render('admin/cadForms/cadastroSituacaoView', { msg: situacao, layout: 'admMain' })
 }
+//insere uma nova relacao e monta cadastro de novo
+async function insertRelacao(req, res) {
+    relacao = new Relacao(req.body.idAco, req.body.idEl, req.body.idSit)
+    let msg = await relacao.savRelacao()
+    let Aco = await dbAco.getAcoAll()
+    let eletrodo = await dbEl.getEletrodo()
+    let situacao = await dbSit.getSitAll()
+    res.render('admin/cadForms/cadastroRelacaoView', { Aco: Aco, eletrodo: eletrodo, situacao: situacao,msg:msg, layout: 'admMain' })
+}
 
 module.exports = {
     getSitAll,
@@ -63,5 +80,7 @@ module.exports = {
     getRelAll,
     insertAco,
     insertEletrodo,
-    insertSituacao
+    insertSituacao,
+    insertRelacao,
+    montaCadastroRelacao
 }

@@ -23,10 +23,10 @@ async function getRelAcoSit(codaco) {
     let rows = await db.inner('*', 'situacao', 'relacao', 'idSit', 'CODSITUACAO', 'b', 'CODACO', codaco)
     return rows;
 }
-//retorna tudo de relacao para uma situacao
+//retorna dados de uma realcao de acordo com os parametros 
 async function innerRelSit(Sitcod, Acocod, Eletrodocod) {
     const query = `
-    select  r.idRel,s.sinome,a.acodigo,e.ecodigo from aco as a 
+    select  r.idRel,a.idAco,e.idEl,s.idSit,s.sinome,a.acodigo,e.ecodigo from aco as a 
     inner join relacao as r on r.codaco = a.idAco 
     inner join eletrodo as e on r.codeletrodo = e.idEl 
     inner join situacao as s on r.codsituacao = s.idSit
@@ -38,15 +38,19 @@ async function innerRelSit(Sitcod, Acocod, Eletrodocod) {
 //retorna uma relacao
 async function getRelacaoById(idRel){
     let rows = await db.main('*', 'relacao', 'idRel',idRel)
-   // console.log(rows)
     return rows
 }
-//getRelacaoById('1')
+//insere uma relacao
+function insertRelacao(idAco, idEl,idSit) {
+    let query = `insert into relacao (codaco,codeletrodo,codsituacao) values ('${idAco}','${idEl}','${idSit}')`
+    db.connection.query(query)
+}
 module.exports = {
     getRelSitAco,
     getRelAcoEl,
     getRelAcoSit,
     innerRelSit,
     getRelacaoById,
-    getRelAll
+    getRelAll,
+    insertRelacao
 }
