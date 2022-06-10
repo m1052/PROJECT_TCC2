@@ -1,4 +1,13 @@
 const db = require('./db')
+//retorna todas as relações
+async function getRelAll(){
+    let query = `select r.idRel,a.acodigo,e.ecodigo,s.sinome from relacao r 
+    inner join aco a on r.codaco = a.idAco
+    inner join eletrodo e on r.codeletrodo = e.idEl
+    inner join situacao s on r.codsituacao = s.idSit;`
+    let [rows] = await db.connection.query(query)
+    return rows
+}
 //retorna aço para uma situação
 async function getRelSitAco(codsituacao) {
     let rows = await db.inner('*', 'aco', 'relacao', 'idAco', 'codaco', 'b', 'codsituacao', codsituacao)
@@ -38,5 +47,6 @@ module.exports = {
     getRelAcoEl,
     getRelAcoSit,
     innerRelSit,
-    getRelacaoById
+    getRelacaoById,
+    getRelAll
 }

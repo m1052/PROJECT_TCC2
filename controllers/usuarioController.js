@@ -4,5 +4,6 @@ function insertUsuario(req,res){
     res.render('admin/cadForms/cadastroUsuarioView',{msg: user, layout: 'loginMain'})
 }
 module.exports={
-    insertUsuario
+    insertUsuario,
+
 }

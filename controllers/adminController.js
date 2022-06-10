@@ -2,9 +2,18 @@ const dbSit = require('../database/dbsituacao')
 const dbAco = require('../database/dbAco')
 const dbEl = require('../database/dbeletrodo')
 const dbUser = require('../database/dbusuario')
-const {Aco} = require('../models/acoModel')
-const {Eletrodo} = require('../models/eletrodoModel')
-const {Situacao} = require('../models/situacaoModel')
+const { Aco } = require('../models/acoModel')
+const { Eletrodo } = require('../models/eletrodoModel')
+const { Situacao } = require('../models/situacaoModel')
+const { Relacao } = require('../models/relacaoModel')
+//retorna todas as relações
+async function getRelAll() {
+    relacao = new Relacao()
+    relacao.getAll().then(rows =>{
+        res.render('admin/relacaoAdmView',{getRelacaoAll: rows})
+    })
+
+}
 //Retorna todos os aços
 async function getSitAll(req, res) {
     let rows = await dbSit.getSitAll()
@@ -27,21 +36,23 @@ async function getUserAll(req, res) {
     let rows = await dbUser.getUserAll()
     res.render('admin/usuarioAdmView', { getUserAll: rows, layout: 'admMain' })
 }
+
+
 //rotas de cadastro
 //inserte aço
- function insertAco(req,res){
-     aco  =  new Aco(req.body.nome,req.body.cod,req.body.dsc,).saveAco()
-     res.render('admin/cadForms/cadastroAcoView',{msg: aco, layout: 'admMain'})
+function insertAco(req, res) {
+    aco = new Aco(req.body.nome, req.body.cod, req.body.dsc,).saveAco()
+    res.render('admin/cadForms/cadastroAcoView', { msg: aco, layout: 'admMain' })
 }
 //inserte eletrodo
-function insertEletrodo(req,res){
-    eletrodo  =  new Eletrodo(req.body.cod,req.body.dsc,).saveEletrodo()
-    res.render('admin/cadForms/cadastroEletrodoView',{msg: eletrodo, layout: 'admMain'})
+function insertEletrodo(req, res) {
+    eletrodo = new Eletrodo(req.body.cod, req.body.dsc,).saveEletrodo()
+    res.render('admin/cadForms/cadastroEletrodoView', { msg: eletrodo, layout: 'admMain' })
 }
 //insere nova situacao
-function insertSituacao(req,res){
-    situacao  =  new Situacao(req.body.nome,req.body.dsc,).saveSituacao()
-    res.render('admin/cadForms/cadastroSituacaoView',{msg: situacao, layout: 'admMain'})
+function insertSituacao(req, res) {
+    situacao = new Situacao(req.body.nome, req.body.dsc,).saveSituacao()
+    res.render('admin/cadForms/cadastroSituacaoView', { msg: situacao, layout: 'admMain' })
 }
 
 module.exports = {
@@ -49,6 +60,7 @@ module.exports = {
     getAcoAll,
     getElAll,
     getUserAll,
+    getRelAll,
     insertAco,
     insertEletrodo,
     insertSituacao
