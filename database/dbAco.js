@@ -4,7 +4,8 @@ async function findAcoByName(acodigo) {
     let query = `select a.idAco,r.CODACO,a.ACODIGO,a.ANOME,a.ADESCRICAO from aco a 
     inner join relacao r on a.idAco = r.CODACO
     where a.acodigo like '%${acodigo}%' or 
-    a.anome like '%${acodigo}%' ;`
+    a.anome like '%${acodigo}%' or
+    a.adescricao like '%${acodigo}%';`
     let [rows] = await db.connection.query(query)
    // console.log(rows)
     return rows
