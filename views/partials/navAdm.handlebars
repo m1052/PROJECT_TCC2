@@ -30,9 +30,9 @@
           <a class="nav-link active" href="/usuario/index">Modo consulta</a>
         </li>
       </ul>
-      <form class="d-flex" role="search">
+      <form class="d-flex" role="search" action="/usuario/aco" method="POST">
          <a class="navbar-brand btn btn-outline-success mt-2 mb-lg-0" href="/usuario/logout" >sair</a>
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="PROCURAR">
+        <input class="form-control me-2" name="acodigo" type="search" placeholder="codigo ou nome do aço" aria-label="PROCURAR">
         <button class="btn btn-outline-success" type="submit">PROCURAR</button>
       </form>
     </div>

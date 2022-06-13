@@ -35,7 +35,13 @@ class Aco {
 
     }
 
+
+    async findAcoByName(acodigo){
+       let rows = await dbAco.findAcoByName(acodigo)
+       return rows
+    }
 }
+
 
 
 module.exports = {

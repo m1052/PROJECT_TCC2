@@ -31,4 +31,5 @@ router.get('/historico/:sitcod/:acocod/:eletrodocod', controHis.historicoparams)
 router.get('/favorito/excluir/:idRel',controlFavorito.excluirFavorito)
 //post route
 router.post('/cadastro/favorito', controlFavorito.insertFavorito)
+router.post('/aco', controlAco.findAcoByName)
 module.exports = router;
