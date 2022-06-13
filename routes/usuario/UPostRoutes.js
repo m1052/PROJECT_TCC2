@@ -28,6 +28,7 @@ router.get('/eletrodo', controEl.get)
 router.get('/favorito', controlFavorito.getFavAll)
 router.get('/eletrodo/:codAco/:codSit', controlRel.getRelAcoEl)
 router.get('/historico/:sitcod/:acocod/:eletrodocod', controHis.historicoparams)
+router.get('/favorito/excluir/:idRel',controlFavorito.excluirFavorito)
 //post route
 router.post('/cadastro/favorito', controlFavorito.insertFavorito)
 module.exports = router;

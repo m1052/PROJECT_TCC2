@@ -1,4 +1,10 @@
 const db = require('./db')
+//exclui um favorito de um usuario
+async function excluirFavorito(idUser, idRel) {
+    let query = `delete from favorito where codusario = '${idUser}' and codrelacao = '${idRel}'`
+    db.connection.query(query)
+}
+//retorna todos os favoritos de um usuario
 async function getFavAll(idUser) {
     let query = `select r.idRel,f.codusario,a.acodigo,e.ecodigo,s.sinome from relacao r inner join favorito f on r.idRel = f.codrelacao 
     inner join aco a on r.codaco = a.idAco
@@ -26,5 +32,6 @@ getFavRel('18')
 module.exports = {
     insertFavorito,
     getFavRel,
-    getFavAll
+    getFavAll,
+    excluirFavorito
 }
