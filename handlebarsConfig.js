@@ -40,7 +40,7 @@ const hnd = handlebars.create({
             // return the template compiled
             return buffer;
         },
-    
+
             
         eachUniqueAco: (array, options) => {
             // this is used for the lookup

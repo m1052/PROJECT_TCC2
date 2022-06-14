@@ -54,6 +54,10 @@ class usuario {
         }
 
     }
+ async   eadm(idUser){
+       msg =  await dbUsuario.eAdm(idUser)
+       return msg
+    }
 }
 module.exports = {
     usuario,

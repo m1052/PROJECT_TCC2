@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express();
 const controllerAdm = require('../../controllers/adminController')
+const controllUser = require('../../controllers/usuarioController')
 
 // static routes
 router.get('/', (req, res) => {
@@ -39,4 +40,5 @@ router.post('/cadastro/aco', controllerAdm.insertAco)
 router.post('/cadastro/eletrodo', controllerAdm.insertEletrodo)
 router.post('/cadastro/situacao', controllerAdm.insertSituacao)
 router.post('/cadastro/relacao',controllerAdm.insertRelacao)
+router.post('/usuario/modify',controllUser.eadm)
 module.exports = router;

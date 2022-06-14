@@ -1,3 +1,4 @@
+{{>msg}}
 <div class="container-xxl">
   <h4>Lista de usuarios cadastrados:</h4>
       <a href="/admin/cadastro/usuario" class="btn btn-primary btn-md mb-2  ">Novo</a>
@@ -10,6 +11,8 @@
           <th>Nome</th>
           <th>Email</th>
           <th>Opções</th>
+          <th>eadm</th>
+
         <tbody>
           {{#if getUserAll}}
           {{#each getUserAll}}
@@ -19,8 +22,18 @@
             <td>{{NOME}} </td>
             <td>{{EMAIL}}</td>
             <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
-
-          </tr>
+            {{#if ADM includeZero=false}}
+            <form id="usuario{{idUser}}" method="POST" action="/admin/usuario/modify">
+     <td><input type="checkbox"  onchange= "document.getElementById('usuario{{idUser}}').submit()" value="{{idUser}}" name="idUser" class="btn-check" id="btn-check{{idUser}}"  autocomplete="off">
+     <label class="btn btn-danger btn-sm" for="btn-check{{idUser}}">Desabilitar</label></td>
+            </form>
+            {{else}}
+     <form id="usuario{{idUser}}" method="POST" action="/admin/usuario/modify">
+     <td><input type="checkbox"  onchange= "document.getElementById('usuario{{idUser}}').submit()" value="{{idUser}}" name="idUser" class="btn-check" id="btn-check{{idUser}}"  autocomplete="off">
+<label class="btn btn-success btn-sm" for="btn-check{{idUser}}">Habilitar</label></td>
+            </form>
+            {{/if}}
+            </tr>
           {{/each}}
           {{else}}
           <p class="d-flex align-items-center">Não há usuarios cadastrados</p>

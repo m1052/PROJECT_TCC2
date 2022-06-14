@@ -19,15 +19,28 @@ function auth (req,res,next){
             return next()
         }else{
             
-            msg.push({ error: "Você precisa ser adminitrador para acessar está área" })
+            msg.push({ error: "Você precisa ser administrador para acessar está área" })
          
             res.render('indexView',{ msg: msg})
         }
    
 }
+function production(){
+    if(process.env.PRODUCTION){
+        const host = 'us-cdbr-east-05.cleardb.net'
+        const user = 'bfadd5427c3c0f'
+        const database = 'heroku_c5fdc72931b039c'
+        const senha = '1437a78a'
+    }else{
+        const host = 'localhost'
+        const user = 'TCC2'
+        const database = 'DBTCC'
+        const senha = '12345678'   
+}
+}
 module.exports = {
     auth,
     authAdm,
-    
+    production
     
 }

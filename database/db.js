@@ -1,9 +1,15 @@
+const production = require('../helpers')
 const mysql = require('mysql2/promise');
 const connection = mysql.createPool({
-  host: 'us-cdbr-east-05.cleardb.net',
+/*   host: 'us-cdbr-east-05.cleardb.net',
   user: 'bfadd5427c3c0f',
   database: 'heroku_c5fdc72931b039c',
-  password: '1437a78a'
+  password: '1437a78a' */
+    host: 'localhost',
+  user: 'TCC2',
+  database: 'DBTCC',
+  password: '12345678'
+
 })
 //select dinamico
 async function main(colm, table, parm, val) {
