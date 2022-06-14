@@ -29,7 +29,7 @@ router.get('/excluir/relacao/:idRel',controllRel.excluirRelacao)
 router.get('/excluir/usuario/:idUser',controllUser.excluirUsuario)
 //Get routes forms de cadastro
 router.get('/cadastro/aco', (req, res) => {
-    res.render('admin/cadForms/cadastroAcoView', { layout: 'admMain' })
+    res.render('admin/cadForms/CadastroAcoView', { layout: 'admMain' })
 })
 router.get('/cadastro/relacao',controllerAdm.montaCadastroRelacao)
 router.get('/cadastro/eletrodo', (req, res) => {
