@@ -2,6 +2,11 @@ const express = require('express');
 const router = express();
 const controllerAdm = require('../../controllers/adminController')
 const controllUser = require('../../controllers/usuarioController')
+const controllAco = require('../../controllers/acoController')
+const controllEl = require('../../controllers/eletrodoController')
+const controllSit = require('../../controllers/situcaoController')
+const controllRel = require('../../controllers/relacaoController')
+
 
 // static routes
 router.get('/', (req, res) => {
@@ -16,6 +21,12 @@ router.get('/relacao', controllerAdm.getRelAll)
 router.get('/aco', controllerAdm.getAcoAll)
 router.get('/eletrodo', controllerAdm.getElAll)
 router.get('/usuario', controllerAdm.getUserAll)
+//rotas de exclusao
+router.get('/excluir/aco/:idAco',controllAco.excluirAco)
+router.get('/excluir/eletrodo/:idEl',controllEl.excluirEletrodo)
+router.get('/excluir/situacao/:idSit',controllSit.excluirSituacao)
+router.get('/excluir/relacao/:idRel',controllRel.excluirRelacao)
+router.get('/excluir/usuario/:idUser',controllUser.excluirUsuario)
 //Get routes forms de cadastro
 router.get('/cadastro/aco', (req, res) => {
     res.render('admin/cadForms/cadastroAcoView', { layout: 'admMain' })

@@ -7,6 +7,10 @@ class Situacao {
         this._descricao = descricao
 
     }
+    async excluirSituacao(idSit){
+        let msg = await dbSit.excluirSituacao(idSit)
+        return msg
+    }
     saveSituacao() {
         //valida os campos antes de salvar
         var erros = []

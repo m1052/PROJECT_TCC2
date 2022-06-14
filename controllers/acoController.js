@@ -1,5 +1,12 @@
 const dbAco = require('../database/dbAco')
 const {Aco} = require('../models/acoModel')
+//exclui um aço
+async function excluirAco(req,res){
+    aco = new Aco
+    msg = await aco.excluirAco(req.params.idAco)
+    let rows = await dbAco.getAcoAll()
+    res.render('admin/acoAdmView', { getAcoAl: rows, layout: 'admMain', msg: msg })
+}
 //retorna aço por codigo
 async function findAcoByName(req,res){
      aco = new Aco
@@ -22,5 +29,6 @@ async function getAcoRel(req, res) {
 module.exports = {
     get,
     getAcoRel,
-    findAcoByName
+    findAcoByName,
+    excluirAco
 }

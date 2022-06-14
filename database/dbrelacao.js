@@ -1,4 +1,16 @@
 const db = require('./db')
+//exclui uma realcao
+async function excluirRelacao(idRel) {
+    let query = `delete from relacao where idRel = '${idRel}';`
+    msg = await db.connection.query(query).then(msg =>{
+        msg = [{success:'Relação excluida com sucesso '}]
+        return msg
+    }).catch(err =>{
+
+        return err
+    })
+    return msg
+}
 //retorna todas as relações
 async function getRelAll(){
     let query = `select r.idRel,a.acodigo,e.ecodigo,s.sinome from relacao r 
@@ -52,5 +64,6 @@ module.exports = {
     innerRelSit,
     getRelacaoById,
     getRelAll,
-    insertRelacao
+    insertRelacao,
+    excluirRelacao
 }

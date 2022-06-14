@@ -8,6 +8,10 @@ class Eletrodo {
         this._descricao = descricao
         this._codigo = codigo
     }
+    async excluirEletrodo(idEL){
+        let msg = await dbEl.excluirEletrodo(idEL)
+        return msg
+    }
     saveEletrodo() {
         //valida os campos antes de salvar
         var erros = []

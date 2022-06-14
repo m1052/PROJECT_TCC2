@@ -1,4 +1,16 @@
 const db = require('./db')
+//excluir uma situacao
+async function excluirSituacao(idSit) {
+    let query = `delete from situacao where idSit = '${idSit}';`
+    msg = await db.connection.query(query).then(msg =>{
+        msg = [{success:'Situação excluida com sucesso '}]
+        return msg
+    }).catch(err =>{
+        msg = [{error: 'ERROR: Situação faz parte de uma relação'}]
+        return msg
+    })
+    return msg
+}
 //retorna  todas as situacoes
 async function getSitAll() {
     let rows = await db.main('*', 'SITUACAO', '1', '1')
@@ -28,5 +40,6 @@ async function insertSit(sinome,sidescricao){
 module.exports = {
     getSitAll,
     getSitId,
-    insertSit
+    insertSit,
+    excluirSituacao
 }

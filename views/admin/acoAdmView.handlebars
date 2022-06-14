@@ -1,3 +1,4 @@
+{{>msg}}
 <div class="container-xxl">
   <h4>Lista de aços cadastrados:</h4>
       <a href="/admin/cadastro/aco" class="btn btn-primary btn-md mb-2  ">Novo</a>
@@ -19,7 +20,7 @@
             <td>{{ACODIGO}} </td>
             <td>{{ANOME}}</td>
             <td>{{ADESCRICAO}}</td>
-             <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
+             <td><a href="/admin/excluir/aco/{{idAco}}"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
 
           </tr>
           {{/each}}

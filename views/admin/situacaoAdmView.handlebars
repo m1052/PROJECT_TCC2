@@ -1,3 +1,4 @@
+{{>msg}}
 <div class="container-xxl">
     <h4>Lista de situações cadastradas:</h4>
         <a href="/admin/cadastro/situacao" class="btn btn-primary btn-md mb-2">Novo</a>
@@ -16,7 +17,7 @@
                         <td>{{idSit}}</td>
                         <td>{{SINOME}} </td>
                         <td>{{SIDESCRICAO}}</td>
-                         <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
+                         <td><a href="/admin/excluir/situacao/{{idSit}}"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
                     </tr>
                     {{/each}}
                     {{else}}

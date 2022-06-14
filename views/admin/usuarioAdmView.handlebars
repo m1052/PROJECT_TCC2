@@ -11,7 +11,7 @@
           <th>Nome</th>
           <th>Email</th>
           <th>Opções</th>
-          <th>eadm</th>
+          <th>Adm</th>
 
         <tbody>
           {{#if getUserAll}}
@@ -21,7 +21,7 @@
             <td>{{idUser}}</td> 
             <td>{{NOME}} </td>
             <td>{{EMAIL}}</td>
-            <td><a href="#"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
+            <td><a href="/admin/excluir/usuario/{{idUser}}"  class="btn btn-danger me-2 mb-2"> <i class="bi bi-x-circle-fill"></i></a><a href="#" class="btn btn-info mb-2"><i class="bi bi-pencil-square"></i></a></td>
             {{#if ADM includeZero=false}}
             <form id="usuario{{idUser}}" method="POST" action="/admin/usuario/modify">
      <td><input type="checkbox"  onchange= "document.getElementById('usuario{{idUser}}').submit()" value="{{idUser}}" name="idUser" class="btn-check" id="btn-check{{idUser}}"  autocomplete="off">

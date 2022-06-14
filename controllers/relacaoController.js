@@ -1,5 +1,12 @@
 const dbRel = require('../database/dbrelacao')
-
+const {Relacao} = require('../models/relacaoModel')
+//excluir uma relacao
+async function excluirRelacao(req,res){
+    relacao = new Relacao
+    msg = await relacao.excluirRelacao(req.params.idRel)
+    let rows = await dbRel.getRelAll()
+    res.render('admin/relacaoAdmView', { getRelacaoAll: rows, layout: 'admMain', msg: msg })
+}
 //retorna aços para uma situação
 async function getRelSitAco(req, res) {
     let rows = await dbRel.getRelSitAco(req.params.codSit).then(rows => {
@@ -23,5 +30,6 @@ module.exports = {
     getRelSitAco,
     getRelAcoEl,
     getRelSAcoSit,
+    excluirRelacao
   
 }

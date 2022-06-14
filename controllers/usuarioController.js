@@ -1,5 +1,12 @@
 const {usuario} = require('../models/usuarioModel')
 const dbUser = require('../database/dbusuario')
+//exclui um usuario
+async function excluirUsuario(req,res){
+    user = new usuario
+    msg = await user.excluirUsuario(req.params.idUser)
+    let rows = await dbUser.getUserAll()
+    res.render('admin/usuarioAdmView', { getUserAll: rows, layout: 'admMain',msg:msg })
+}
 //torno usuario adm
 async function eadm(req,res){
     [idUser] = req.user
@@ -17,6 +24,7 @@ function insertUsuario(req,res){
 
 module.exports={
     insertUsuario,
-    eadm
+    eadm,
+    excluirUsuario
 
 }

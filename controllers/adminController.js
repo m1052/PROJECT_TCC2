@@ -15,7 +15,7 @@ async function getRelAll(req, res) {
 
 
 }
-//Retorna todos os aços
+//Retorna todos as situacaoes
 async function getSitAll(req, res) {
     let rows = await dbSit.getSitAll()
     res.render('admin/situacaoAdmView', { getSitAl: rows, layout: 'admMain' })

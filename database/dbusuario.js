@@ -1,4 +1,17 @@
 const db = require('./db')
+//exclui um usuario
+async function excluirUsuario(idUser){
+    let query = `delete from usuario where idUser = '${idUser}';`
+    let query2 = `delete from favorito where codusario = '${idUser}'`
+    db.connection.query(query2)
+    msg = await db.connection.query(query).then(msg =>{
+         msg = [{success:'Usuario excluido com sucesso '}]
+        return msg
+    }).catch(err =>{
+        return err
+    })
+    return msg
+}
 //torna um usuario admin
 async function eAdm(user) {
     let  [idUser] = await findUserByID(user)
@@ -61,6 +74,7 @@ module.exports = {
     fidUserByEmail,
     findUserByID,
     getUserAll,
-    eAdm
+    eAdm,
+    excluirUsuario
 
 }

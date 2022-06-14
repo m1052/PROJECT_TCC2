@@ -9,7 +9,10 @@ class Relacao {
         this._idSit = idSit
 
     }
-
+    async excluirRelacao(idRel){
+        let msg = await dbRel.excluirRelacao(idRel)
+        return msg
+    }
   async savRelacao(){
     var msg = []
     let rows = await dbRel.innerRelSit(this._idSit,this._idAco,this._idEl)

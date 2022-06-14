@@ -1,3 +1,5 @@
+const { redirect } = require("express/lib/response")
+
 //so deicxa passar usuarios autenticados
 function auth (req,res,next){
     if(req.isAuthenticated()){
@@ -14,8 +16,8 @@ function auth (req,res,next){
     function authAdm (req,res,next){
         var msg = []
      let [user] = req.user
-
-        if(user.ADM == 1){
+    try{
+     if(user.ADM == 1){
             return next()
         }else{
             
@@ -23,7 +25,10 @@ function auth (req,res,next){
          
             res.render('indexView',{ msg: msg})
         }
-   
+    }catch{
+        res.redirect('/')
+    }
+
 }
 function production(){
     if(process.env.PRODUCTION){

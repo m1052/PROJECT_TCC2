@@ -1,4 +1,16 @@
 const db = require('./db')
+//exclui um aço
+async function excluirAco(idAco) {
+    let query = `delete from aco where idAco = '${idAco}';`
+    msg = await db.connection.query(query).then(msg =>{
+        msg = [{success:'Aço excluido com sucesso '}]
+        return msg
+    }).catch(err =>{
+        msg = [{error: 'ERROR: Aço faz parte de uma relação'}]
+        return msg
+    })
+    return msg
+}
 //retorna aço por codigo
 async function findAcoByName(acodigo) {
     let query = `select a.idAco,r.CODACO,a.ACODIGO,a.ANOME,a.ADESCRICAO from aco a 
@@ -42,7 +54,8 @@ module.exports = {
     getAcoAll,
     getAcoRel,
     insertAco,
-    findAcoByName
+    findAcoByName,
+    excluirAco
 
 
 }

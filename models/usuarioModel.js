@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs')
-const res = require('express/lib/response')
 const dbUsuario = require('../database/dbusuario')
 class usuario {
     _Nome
@@ -11,6 +10,10 @@ class usuario {
         this._Senha = senha
         this._Senha2 = senha2
         this._email = email
+    }
+    async excluirUsuario(idUser){
+        let msg = await dbUsuario.excluirUsuario(idUser)
+        return msg
     }
     saveUsuario() {
         var erros = []
