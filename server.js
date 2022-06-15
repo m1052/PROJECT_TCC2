@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+const port =process.env.PORT || 3000;
 const path = require('path');
 const bodyParser = require('body-parser')
 const { hnd } = require('./handlebarsConfig');
