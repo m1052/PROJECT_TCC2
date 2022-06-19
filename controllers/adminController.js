@@ -50,7 +50,7 @@ async function montaCadastroRelacao(req, res) {
 //inserte aço
 function insertAco(req, res) {
     aco = new Aco(req.body.nome, req.body.cod, req.body.dsc,).saveAco()
-    res.render('admin/cadForms/cadastroAcoView', { msg: aco, layout: 'admMain' })
+    res.render('admin/cadForms/CadastroAcoView', { msg: aco, layout: 'admMain' })
 }
 //inserte eletrodo
 function insertEletrodo(req, res) {

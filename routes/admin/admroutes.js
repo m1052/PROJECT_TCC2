@@ -48,7 +48,7 @@ router.get('/gerencia',helpers.auth,helpers.authAdm, (req, res) => {
 })
 
 //Post Routes
-router.post('/cadastro/aco',helpers.auth,helpers.authAdm, controllerAdm.insertAco)
+router.post('/cadastro/aco',helpers.auth,helpers.authAdm,controllerAdm.insertAco)
 router.post('/cadastro/eletrodo',helpers.auth,helpers.authAdm, controllerAdm.insertEletrodo)
 router.post('/cadastro/situacao',helpers.auth,helpers.authAdm, controllerAdm.insertSituacao)
 router.post('/cadastro/relacao',helpers.auth,helpers.authAdm,controllerAdm.insertRelacao)

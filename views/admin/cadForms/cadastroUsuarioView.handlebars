@@ -2,6 +2,7 @@
     <div class="card-body ">
         <h4 class="card-title">Cadastrar Usuário</h4>
         <br>
+        {{>msg}}
         <form action="/cadastro/usuario" method="POST">
             <label for="nome">Nome de usuario</label>
             <input id="nome" name="nome" type="text" placeholder="Nome" class="form-control">
